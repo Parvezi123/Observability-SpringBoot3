@@ -1,2 +1,18 @@
 server:
   port: 9008
+spring:
+  application:
+    name: SpringBoot-Observability
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: ["health", "prometheus", "metrics"]
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
