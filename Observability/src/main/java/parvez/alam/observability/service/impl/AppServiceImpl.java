@@ -13,7 +13,7 @@ public class AppServiceImpl implements AppService {
     private static final Random RANDOM = new Random();
 
     @Override
-    public Integer getCurrentYear() {
+    public String getCurrentYearWithoutObservability() {
 
         try {
             if (RANDOM.nextBoolean()) {
@@ -24,6 +24,11 @@ public class AppServiceImpl implements AppService {
         {
             e.printStackTrace();
         }
-        return LocalDateTime.now().getYear();
+        return Integer.toString(LocalDateTime.now().getYear());
+    }
+
+    @Override
+    public String getCurrentYearWithObservability() {
+        return null;
     }
 }

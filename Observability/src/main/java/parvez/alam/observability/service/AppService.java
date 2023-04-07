@@ -2,5 +2,7 @@ package parvez.alam.observability.service;
 
 public interface AppService {
 
-    Integer getCurrentYear();
+    String getCurrentYearWithoutObservability();
+
+    String getCurrentYearWithObservability();
 }

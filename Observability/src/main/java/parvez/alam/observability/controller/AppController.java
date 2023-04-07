@@ -9,14 +9,20 @@ import org.springframework.web.bind.annotation.RestController;
 import parvez.alam.observability.service.AppService;
 
 @RestController
-@RequestMapping("/api/current")
+@RequestMapping("/api")
 public class AppController {
 
     @Resource
     private AppService appService;
 
-    @GetMapping("/year")
-    public ResponseEntity<Integer> getCurrentYear() {
-        return ResponseEntity.ok(appService.getCurrentYear());
+    @GetMapping("noobserve/year")
+    public ResponseEntity<String> getCurrentYearWithoutObservability() {
+        return ResponseEntity.ok("No Observability " + appService.getCurrentYearWithoutObservability());
     }
+
+    @GetMapping("observe/year")
+    public ResponseEntity<String> getCurrentYearWithObservability() {
+        return ResponseEntity.ok("With Observability " + appService.getCurrentYearWithObservability());
+    }
+
 }
