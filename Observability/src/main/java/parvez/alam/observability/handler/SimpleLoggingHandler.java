@@ -8,22 +8,22 @@ import lombok.extern.slf4j.Slf4j;
 public class SimpleLoggingHandler implements ObservationHandler<Observation.Context> {
     @Override
     public void onStart(Observation.Context context) {
-        log.info("Start, context Name : {}", context.getName());
+        log.info("START -> context Name : {}", context.getName());
     }
 
     @Override
     public void onStop(Observation.Context context) {
-        log.info("Stop, context Name : {}", context.getName());
+        log.info("STOP  -> context Name : {}", context.getName());
     }
 
     @Override
     public void onScopeOpened(Observation.Context context) {
-        log.info("ScopeOpened, context Name : {}", context.getName());
+        log.info("ScopeOpened -> context Name : {}", context.getName());
     }
 
     @Override
     public void onScopeClosed(Observation.Context context) {
-        log.info("ScopeClosed, context Name : {}", context.getName());
+        log.info("ScopeClosed -> context Name : {}", context.getName());
     }
 
     @Override
@@ -32,12 +32,12 @@ public class SimpleLoggingHandler implements ObservationHandler<Observation.Cont
         var error = context.getError();
         var message = error != null ? error.getMessage() : null ;
 
-        log.info("Error Occurred, context Name : {} , ; Error : {}", context.getName(), message);
+        log.info("Error Occurred -> context Name : {} , ; Error : {}", context.getName(), message);
     }
 
     @Override
     public void onEvent(Observation.Event event, Observation.Context context) {
-        log.info("EVENT, context Name : {}   ;  event Name : {}", context.getName(), event.getName());
+        log.info("EVENT -> Context Name : {}   ;  Event Name : {}", context.getName(), event.getName());
     }
 
     @Override
